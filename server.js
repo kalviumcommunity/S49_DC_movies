@@ -21,10 +21,10 @@ const client = new MongoClient(uri, {
 
 app.get("/", async (req, res) => {
   try {
-    // Connect to the MongoDB database
+   
     await client.connect();
 
-    // Check if the connection is successful
+   
     if (client.topology.isConnected()) {
       res.json({ message: "pong", database_status: "Connected" });
       console.log("yes");
