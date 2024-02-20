@@ -2,7 +2,8 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const { MongoClient } = require("mongodb");
-app.use(express.json());
+app.use(express.json())
+require("dotenv").config();
 
 
 
@@ -14,7 +15,7 @@ app.get('/ping',(req,res) => {
 const uri = process.env.DATABASE_URI;
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
-  useUnifiedTopology: true,
+  useUnifiedTopology:true,
 });
 
 
@@ -34,6 +35,7 @@ app.get("/", async (req, res) => {
   } catch (error) {
     console.error("Error connecting to the database:", error);
     res.status(500).json({ error: "Internal Server Error" });
+    throw err;
   }
 });
 
