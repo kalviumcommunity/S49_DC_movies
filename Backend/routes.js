@@ -1,74 +1,51 @@
-
 const express = require('express');
 const router = express.Router();
-const { MongoClient, ObjectID } = require('mongodb');
 
+let dcMovies = [
+    { id: 1, name: 'Aquaman', boxOfficeEarnings: '$1.148 billion' },
+    { id: 2, name: 'Wonder Woman', boxOfficeEarnings: '$821.8 million' }
+];
 
-const uri = process.env.MONGODB_URI;
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-
-
-router.post('/create', async (req, res) => {
-  try {
-    await client.connect();
-    console.log('Connected to the database');
-
-    
-
-    res.status(201).json({ "success": "data created", "insertedId": result.insertedId });
-  } catch (error) {
-    console.error('Error connecting to the database:', error);
-    res.status(500).json({ "error": "Internal Server Error" });
-  }
+router.get('/dc-movies', (req, res) => {
+    res.json(dcMovies);
 });
 
-// Read
-router.get('/read', async (req, res) => {
-  try {
-    await client.connect();
-    console.log('Connected to the database');
-
-    
-
-
-    res.status(200).json({ "success": "data read", "data": data });
-  } catch (error) {
-    console.error('Error connecting to the database:', error);
-    res.status(500).json({ "error": "Internal Server Error" });
-  }
+router.get('/dc-movies/:id', (req, res) => {
+    const movieId = parseInt(req.params.id);
+    const movie = dcMovies.find(movie => movie.id === movieId);
+    if (!movie) {
+        return res.status(404).json({ message: 'DC movie not found' });
+    }
+    res.json(movie);
 });
 
-
-router.put('/update/:id', async (req, res) => {
-  try {
-    await client.connect();
-    console.log('Connected to the database');
-
-    const objectId = new ObjectID(req.params.id);
-
-    
-
-
-    res.status(200).json({ "success": "data updated", "modifiedCount": result.modifiedCount });
-  } catch (error) {
-    console.error('Error connecting to the database:', error);
-    res.status(500).json({ "error": "Internal Server Error" });
-  }
+router.post('/dc-movies', (req, res) => {
+    const { name, boxOfficeEarnings } = req.body;
+    const newMovie = {
+        id: dcMovies.length + 1,
+        name: 'New DC Movie',
+        boxOfficeEarnings: '$NewEarnings'
+    };
+    dcMovies.push(newMovie);
+    res.status(201).json(newMovie);
 });
 
+router.put('/dc-movies/:id', (req, res) => {
+    const movieId = parseInt(req.params.id);
+    const movieIndex = dcMovies.findIndex(movie => movie.id === movieId);
+    if (movieIndex === -1) {
+        return res.status(404).json({ message: 'DC movie not found' });
+    }
+    const { name, boxOfficeEarnings } = req.body;
+    dcMovies[movieIndex].name = name;
+    dcMovies[movieIndex].boxOfficeEarnings = boxOfficeEarnings;
+    res.json(dcMovies[movieIndex]);
+});
 
-router.delete('/delete/:id', async (req, res) => {
-  try {
-    await client.connect();
-    console.log('Connected to the database');
-
-    const objectId = new ObjectID(req.params.id);
-
-    res.status(200).json({ "success": "data deleted", "deletedCount": result.deletedCount });
-  } catch (error) {
-    console.error('Error connecting to the database:', error);
-    res.status(500).json({ "error": "Internal Server Error" });
-  }
+router.delete('/dc-movies/:id', (req, res) => {
+    const movieId = parseInt(req.params.id);
+    dcMovies = dcMovies.filter(movie => movie.id !== movieId);
+    res.json({ message: 'DC movie deleted successfully' });
 });
 
 module.exports = router;

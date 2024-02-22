@@ -4,8 +4,9 @@ const port = 3000;
 const { MongoClient } = require("mongodb");
 app.use(express.json())
 require("dotenv").config();
+const routes = require('./routes')
 
-
+app.use('/', routes);
 
 app.get('/ping',(req,res) => {
   res.send("pong")
@@ -17,6 +18,7 @@ const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology:true,
 });
+
 
 
 app.get("/", async (req, res) => {
