@@ -1,5 +1,6 @@
-.header{
+h1{
   position: absolute;
-  bottom: 680px;
-  right: 640px;
-}  
+  bottom: 600px;
+  font-size: 80px;
+  right: 580px;
+}
