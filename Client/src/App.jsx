@@ -1,18 +1,13 @@
-import React from "react";
-import './App.css';
-import Module11 from "./Component/module11"; 
+import React from 'react';
+import Landing from './Component/landing';
 
-function App() {
+const App = () => {
   return (
-    <div className="header">
+    <div>
       
-        <h1>DC Movies</h1>
-      
-      <div>
-        <Module11 /> 
-      </div>
+      <Landing />
     </div>
   );
-}
+};
 
 export default App;
