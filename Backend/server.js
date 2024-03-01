@@ -1,51 +1,35 @@
 const express = require('express');
 const app = express();
 const port = 3000;
-const { MongoClient } = require("mongodb");
 app.use(express.json())
 require("dotenv").config();
-const routes = require('./routes')
+const cors = require('cors');
+const mongoose = require('mongoose');
+let MovieModel = require("./model/movies")
 
-app.use('/', routes);
-
-app.get('/ping',(req,res) => {
-  res.send("pong")
+app.use(cors());
+app.use(express.urlencoded({ extended: true }));
+async function Connection(){
+      await mongoose.connect(process.env.DATABASE_URI);
+      console.log("Connected to DB")
 }
-)
 
-const uri = process.env.DATABASE_URI;
-const client = new MongoClient(uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology:true,
-});
-
-
-
-app.get("/", async (req, res) => {
+app.get('/movies', async (req, res) => {
   try {
-   
-    await client.connect();
-
-   
-    if (client.topology.isConnected()) {
-      res.json({ message: "pong", database_status: "Connected" });
-      console.log("yes");
-    } else {
-      res.json({ message: "pong", database_status: "Disconnected" });
-      console.log("no");
-    }
-  } catch (error) {
-    console.error("Error connecting to the database:", error);
-    res.status(500).json({ error: "Internal Server Error" });
-    throw err;
+    const movies = await MovieModel.find();
+    console.log('Retrieved movies:', movies);
+    res.json(movies);
+  } catch (err) {
+    console.error('Error retrieving movies:', err);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 
+Connection().then(()=>{
 
-if (require.main === module) {
   app.listen(port, () => {
     console.log(`🚀 server running on PORT: ${port}`);
   });
-}
+})
 
 module.exports = app;

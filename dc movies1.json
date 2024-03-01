@@ -1,0 +1,103 @@
+[
+    {
+      "Movie_Title": "Man of Steel",
+      "Box_Office": "$668",
+      "Rating": 7.1
+    },
+    {
+      "Movie_Title": "Batman v Superman",
+      "Box_Office": "$873",
+      "Rating": 6.5
+    },
+    {
+      "Movie_Title": "Suicide Squad",
+      "Box_Office": "$746",
+      "Rating": 6
+    },
+    {
+      "Movie_Title": "Wonder Woman",
+      "Box_Office": "$821",
+      "Rating": 7.4
+    },
+    {
+      "Movie_Title": "Justice League",
+      "Box_Office": "$657",
+      "Rating": 6.3
+    },
+    {
+      "Movie_Title": "Aquaman",
+      "Box_Office": "$1,148",
+      "Rating": 7
+    },
+    {
+      "Movie_Title": "Shazam!",
+      "Box_Office": "$365",
+      "Rating": 7.1
+    },
+    {
+      "Movie_Title": "Birds of Prey",
+      "Box_Office": "$201",
+      "Rating": 6.1
+    },
+    {
+      "Movie_Title": "Wonder Woman 1984",
+      "Box_Office": "$166",
+      "Rating": 5.4
+    },
+    {
+      "Movie_Title": "Zack Snyder's Justice League",
+      "Box_Office": "$657",
+      "Rating": 8.1
+    },
+    {
+      "Movie_Title": "The Dark Knight",
+      "Box_Office": "$1,004",
+      "Rating": 9.0
+    },
+    {
+      "Movie_Title": "The Dark Knight Rises",
+      "Box_Office": "$1,081",
+      "Rating": 8.4
+    },
+    {
+      "Movie_Title": "Batman Begins",
+      "Box_Office": "$373",
+      "Rating": 8.2
+    },
+    {
+      "Movie_Title": "The Flash",
+      "Box_Office": "$360",
+      "Rating": 6.3
+    },
+    {
+      "Movie_Title": "Man of Steel 2",
+      "Box_Office": "$874",
+      "Rating": 7.8
+    },
+    {
+      "Movie_Title": "Green Lantern",
+      "Box_Office": "$219",
+      "Rating": 5.5
+    },
+    {
+      "Movie_Title": "Catwoman",
+      "Box_Office": "$82",
+      "Rating": 3.4
+    },
+    {
+      "Movie_Title": "Superman Returns",
+      "Box_Office": "$391",
+      "Rating": 6.1
+    },
+    {
+      "Movie_Title": "The Suicide Squad",
+      "Box_Office": "$167",
+      "Rating": 7.3
+    },
+    {
+      "Movie_Title": "Joker",
+      "Box_Office": "$1,074",
+      "Rating": 8.4
+    }
+  ]
+  
