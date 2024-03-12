@@ -2,14 +2,15 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: bisque;
+    /* background-color: rgb(255, 228, 196); */
+    
   }
   
   .container {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background-color: bisque;
+    /* background-color: bisque; */
     
 }
   
@@ -27,7 +28,7 @@ body {
   .movieBox {
     border-radius: 8px;
     padding: 15px;
-    background-color: #5b6476;
+    background-color: #000000;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
@@ -40,3 +41,37 @@ body {
     color: #ffffff;
   }
   
+#review{
+    position: relative;
+    right: 450px;
+    top: 65px;
+    height: 50px;
+    width: 100px;
+    font-size: 25px;
+    background-color: black;
+    color: white;
+}
+
+#review1{
+    position: relative;
+    right: 300px;
+    bottom: 80px;
+    top: 150px;
+    height: 60px;
+    width: 170px;
+    font-size: 23px;
+    background-color: black;
+    color: white;
+}
+
+#login1{
+  position: relative;
+    left: 600px;
+    bottom: 50px;
+    /* top: 150px; */
+    height: 60px;
+    width: 170px;
+    font-size: 23px;
+    background-color: black;
+    color: white;
+}
