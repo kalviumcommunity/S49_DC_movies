@@ -1,0 +1,45 @@
+/* create.css */
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .register-form {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-field {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .success-message {
+    color: rgb(102, 255, 0);
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  .error-message {
+    color: red;
+    margin-bottom: 10px;
+  }
+
+#goback{
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+  position: relative;
+  right: 800px;
+  bottom: 250px;
+}

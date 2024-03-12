@@ -1,0 +1,21 @@
+meta {
+  name: test update
+  type: http
+  seq: 1
+}
+
+put {
+  url: http://localhost:3000/updateReview/${65e8365d59d32391fba791a1}
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      
+      "Movie_Name": "Batman ",
+      "Feedback": "its gd",
+      "Rating": "9/10"
+     
+    }
+}
